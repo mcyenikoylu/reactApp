@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter} from "react-router-dom";
 //export class Page1 extends React.Component //withRouter yapısı için kaldırdım.
-class Page1 extends React.Component
+class NotFound extends React.Component
 {
    constructor(props){
        super(props);
@@ -9,12 +9,12 @@ class Page1 extends React.Component
    }
    navToPage2=()=>{
        //window.location.href="#page2";
-       this.props.history.push("/page2");
+       this.props.history.push("page1");
    }
     render(){
-        return  <div>page 1 sayfa
-            <button onClick={this.navToPage2}>sayfa2</button>
+        return  <div>NOT FOUND
+            <button onClick={this.navToPage2}>sayfa1</button>
         </div>
     }
 }
-export default withRouter(Page1);
+export default withRouter(NotFound);

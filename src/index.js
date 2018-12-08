@@ -23,6 +23,8 @@ import {Router, Route, HashRouter, Switch } from "react-router-dom";
 // import {Page2} from './components/page2'
 import Page1 from './components/page1'
 import Page2 from './components/page2'
+import NotFound from './components/notfound'
+
 export class App extends React.Component
 {
    constructor(props){
@@ -196,14 +198,9 @@ export class App extends React.Component
   <HashRouter>
   <Switch>
       <Route exact path="/" component={Page1} />
-
-      <Route
-        path="/page2" component={Page2} />}
-      />
-
-      <Route
-        path="/page1" component={Page1} />}
-      />
+      <Route path="/page2" component={Page2} />
+      <Route path="/page1" component={Page1} /> 
+      <Route path="*" component={NotFound} />
      </Switch>
     </HashRouter>
 
