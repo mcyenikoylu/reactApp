@@ -28,5 +28,6 @@ module.exports = {
     devServer: {
         hot: true,
         contentBase: '/'
-    }
+    },
+    devtool: 'inline-source-map'
 };
