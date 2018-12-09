@@ -3,6 +3,9 @@ import {withRouter,Switch,Route } from "react-router-dom";
 import SubPage1 from './subPage1';
 import SubPage2 from './subPage2';
 
+//redux
+import { connect } from 'react-redux';
+
 //export class Page2 extends React.Component
 class Page2 extends React.Component
 {
@@ -29,7 +32,7 @@ subClick2=()=>{
     })
 }
     render(){
-        return  <div>Page 2 sayfa 
+        return  <div>Page 2 sayfa - {this.props.APPTITLE} - {this.props.USERNAME}
              <button onClick={this.navToPage1}>sayfa1</button>
              <Switch>
       <Route exact path="/page2/subPage1" component={SubPage1} />
@@ -48,4 +51,9 @@ subClick2=()=>{
     }
 }
 
-export default withRouter(Page2);
+//export default withRouter(Page2);
+const mapStateToProps =(state,ownProps) => ({
+    APPTITLE: state.reducer2.appTitle,
+    USERNAME: state.reducer1.username
+})
+export default connect (mapStateToProps)(withRouter(Page2)); //redux

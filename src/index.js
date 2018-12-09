@@ -16,6 +16,7 @@ import ReactDOM from 'react-dom';
 // import products from './products.json';
 // import { sampleProducts } from './sample-products.jsx';
 
+//router
 import {Router, Route, HashRouter, Switch } from "react-router-dom";
 // import {Page1} from './components/page1' component deki export gidince süslü parentezler kalkıyor.
 //sayfa değişimi withRouter için aşağıdaki kodlara revize ettim. bunlar eski hali windows.location olarak 
@@ -24,6 +25,12 @@ import {Router, Route, HashRouter, Switch } from "react-router-dom";
 import Page1 from './components/page1'
 import Page2 from './components/page2'
 import NotFound from './components/notfound'
+
+//redux
+import {Provider} from 'react-redux'
+import {createStore} from 'redux'
+import reducers from './redux'
+export const storeObj = createStore(reducers);
 
 export class App extends React.Component
 {
@@ -214,4 +221,4 @@ export class App extends React.Component
 if(module.hot) {
     module.hot.accept();
 }
-ReactDOM.render(<App /> , document.getElementById("conteiner"));
+ReactDOM.render(<Provider store={storeObj}><App /></Provider> , document.getElementById("conteiner"));
